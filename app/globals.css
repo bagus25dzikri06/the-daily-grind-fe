@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --dark: #111111;
+  --dark-alternate: #3D1E17;
+  --primary: #AB5A2B;
+  --primary-alternate: #F3F3EB;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-dark: var(--dark);
+  --color-dark-alternate: var(--dark-alternate);
+  --color-primary: var(--primary);
+  --color-primary-alternate: var(--primary-alternate);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-exo-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+h1 {
+  @apply font-heading;
+}
+
+* {
+  @apply font-sans;
+}
+
+p {
+  @apply font-mono;
+}
+
+/* INPUT GROUP */
+.input-group {
+  @apply mb-5;
+}
+
+.input-group label {
+  @apply block text-xs mb-3;
+}
+
+.input-group input, .input-group textarea {
+  @apply px-4 py-2.5 bg-gray-100 w-full focus:border focus:border-gray-400 outline-none text-sm;
+}
+
+/* INPUT GROUP ADMIN */
+.input-group-admin label {
+  @apply block text-xs mb-3;
+}
+
+.input-group-admin input, .input-group-admin select, .input-group-admin textarea {
+  @apply px-4 py-2.5 w-full border border-gray-300 rounded-md focus:border focus:border-gray-500 outline-none text-sm;
 }
