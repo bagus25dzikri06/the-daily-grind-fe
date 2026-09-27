@@ -74,7 +74,10 @@ const TransactionTable = ({ transactions, onViewDetails } : TTransactionTablePro
                     <option value="">All</option>
                     <option value="pending" className="text-yellow-600">Pending</option>
                     <option value="paid" className="text-green-600">Paid</option>
-                    <option value="rejected" className="text-red-600">Rejected</option>
+                    <option value="in progress" className="text-[#FF991C]">In Progress</option>
+                    <option value="ready" className="text-[#98FF98]">Ready</option>
+                    <option value="refunded" className="text-[#A9A9A9]">Refunded</option>
+                    <option value="cancelled" className="text-red-600">Cancelled</option>
                 </select>
             </div>
             {
