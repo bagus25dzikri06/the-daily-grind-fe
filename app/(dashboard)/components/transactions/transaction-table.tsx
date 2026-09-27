@@ -169,6 +169,9 @@ const TransactionTable = ({ transactions, onViewDetails } : TTransactionTablePro
                                         <div className={`px-2 py-1 rounded-full border text-center ${
                                             selectedTransactionStatus === 'pending' ? 'bg-yellow-100 text-yellow-600 border-yellow-200' : 
                                             selectedTransactionStatus === 'paid' ? 'bg-green-100 text-green-600 border-green-200' : 
+                                            selectedTransactionStatus === 'in progress' ? 'bg-[#FF991C] text-white border-[#FF5C00]' :
+                                            selectedTransactionStatus === 'ready' ? 'bg-[#98FF98] text-black border-[#46B47F]' : 
+                                            selectedTransactionStatus === 'refunded' ? 'bg-[#A9A9A9] text-white border-[#736F73]' : 
                                             'bg-red-100 text-red-600 border-red-200'}`
                                         }>
                                             {selectedTransactionStatus.toUpperCase()}
