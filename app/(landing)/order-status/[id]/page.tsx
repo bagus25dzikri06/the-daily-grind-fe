@@ -5,6 +5,7 @@ import OrderReady from "../../components/order-status/order-ready"
 import { getTransactionById } from "@/app/services/transaction.service"
 import { TPageProps } from "../../menu/[id]/page"
 import OrderCancelled from "../../components/order-status/order-cancelled"
+import OrderRefunded from "../../components/order-status/order-refunded"
 
 const OrderStatus = async ({params}: TPageProps) => {
     const {id} = await params
@@ -29,6 +30,9 @@ const OrderStatus = async ({params}: TPageProps) => {
             }
             {
                 transaction.status === 'cancelled' && <OrderCancelled />
+            }
+            {
+                transaction.status === 'refunded' && <OrderRefunded />
             }
         </div>
     </main>
