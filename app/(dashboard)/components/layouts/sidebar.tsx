@@ -50,7 +50,7 @@ const Sidebar = () => {
     return (
         <aside className="w-80 min-h-screen bg-white border-r border-gray-100 flex flex-col fixed left-0 top-0">
             <div className="py-8 px-14 border-b border-gray-200">
-                <Image src="/images/logo-admin.svg" alt="logo admin" width={215} height={36} />
+                <Image src="/images/The-Daily-Grind.jpg" alt="logo admin" width={215} height={36} />
             </div>
             <div className="flex flex-col gap-2 mt-12 p-5">
                 {

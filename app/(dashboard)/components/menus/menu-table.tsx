@@ -134,7 +134,18 @@ const ProductTable = ({menu, onDelete, onEdit}: TMenuTableProps) => {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 font-medium">{PriceFormatter(data.price)}</td>
-                                        <td className="px-6 py-4 font-medium">{data.isAvailable}</td>
+                                        <td className="px-6 py-4 font-medium">
+                                            {
+                                                data.isAvailable === true && (
+                                                    <div className="text-black">Available</div>
+                                                )
+                                            }
+                                            {
+                                                data.isAvailable === false && (
+                                                    <div className="text-black">Sold Out</div>
+                                                )
+                                            }
+                                        </td>
                                         <td className="px-6 py-7.5 self-center flex items-center gap-3 text-gray-600">
                                             <button onClick={() => onEdit?.(data)} className="cursor-pointer">
                                                 <FiEdit2 size={20} />
@@ -176,7 +187,7 @@ const ProductTable = ({menu, onDelete, onEdit}: TMenuTableProps) => {
                                 <th className="px-6 py-4 font-semibold">Product</th>
                                 <th className="px-6 py-4 font-semibold">Category</th>
                                 <th className="px-6 py-4 font-semibold">Price</th>
-                                <th className="px-6 py-4 font-semibold">Stock</th>
+                                <th className="px-6 py-4 font-semibold">Availability</th>
                                 <th className="px-6 py-4 font-semibold">Actions</th>
                             </tr>
                         </thead>
@@ -206,7 +217,18 @@ const ProductTable = ({menu, onDelete, onEdit}: TMenuTableProps) => {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 font-medium">{PriceFormatter(data.price)}</td>
-                                        <td className="px-6 py-4 font-medium">{data.isAvailable}</td>
+                                        <td className="px-6 py-4 font-medium">
+                                            {
+                                                data.isAvailable === true && (
+                                                    <div className="text-black">Available</div>
+                                                )
+                                            }
+                                            {
+                                                data.isAvailable === false && (
+                                                    <div className="text-black">Sold Out</div>
+                                                )
+                                            }
+                                        </td>
                                         <td className="px-6 py-7.5 self-center flex items-center gap-3 text-gray-600">
                                             <button onClick={() => onEdit?.(data)} className="cursor-pointer">
                                                 <FiEdit2 size={20} />

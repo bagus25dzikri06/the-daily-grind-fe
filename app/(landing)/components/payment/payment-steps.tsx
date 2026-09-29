@@ -36,7 +36,7 @@ const PaymentSteps = () => {
            formData.append("image", file)
            formData.append("purchasedMenus", JSON.stringify(
                 items.map((item) => ({
-                    productId: item._id,
+                    menuId: item._id,
                     qty: item.qty
                 }))
            ))

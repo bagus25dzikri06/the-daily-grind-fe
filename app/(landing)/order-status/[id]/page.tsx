@@ -26,7 +26,7 @@ const OrderStatus = async ({params}: TPageProps) => {
                 transaction.status === 'in progress' && <OrderInProgress />
             }
             {
-                transaction.status === 'ready' && <OrderReady />
+                transaction.status === 'ready' && (<OrderReady />)
             }
             {
                 transaction.status === 'cancelled' && <OrderCancelled />

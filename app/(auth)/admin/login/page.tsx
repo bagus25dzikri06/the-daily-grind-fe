@@ -25,7 +25,7 @@ const LoginPage = () => {
         try {
             const data = await login({email, password})
             if (data.token) {
-                router.push('/admin/products')
+                router.push('/admin/menu')
             }
         } catch (err: any) {
             setErrorMessage(err.message || 'Something went wrong. Please, try again later!')
@@ -39,7 +39,7 @@ const LoginPage = () => {
         <main className="bg-[#F7F9FA] w-full min-h-screen flex justify-center items-center">
             <div className="max-w-136 w-full bg-white rounded-xl border-t-4 border-primary py-12 px-[72px]">
                 <Image 
-                src="/images/logo-admin.svg" 
+                src="/images/The-Daily-Grind.jpg" 
                 alt="logo admin" 
                 width={304} 
                 height={51} 

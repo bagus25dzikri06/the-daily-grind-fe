@@ -6,26 +6,8 @@ import AuthGuard from "./components/layouts/auth-guard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"]
-});
-
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"]
-});
-
-const exo2 = Exo_2({
-  variable: "--font-exo-2",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"]
 });
@@ -42,9 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${exo2.variable} ${inter.className} antialiased`}
+        className={`${inter.className} antialiased`}
+        suppressHydrationWarning={true}
       >
         <div className="flex min-h-screen bg-white">
           <Sidebar />

@@ -26,7 +26,7 @@ type MenuFormData = {
 }
 
 const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
-    const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
+    const [isAvailable, setIsAvailable] = useState<boolean>(true);
     const [category, setCategory] = useState<Category[]>([])
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [imagePreview, setImagePreview] = useState<string | null>(null)
@@ -57,7 +57,6 @@ const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
         setFormData((prev) => ({
             ...prev, [id] : value
         }))
-        setIsAvailable(value === 'true')
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -66,7 +65,7 @@ const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
         try {
             const data = new FormData()
             data.append('name', formData.name)
-            data.append('isAvailable', formData.isAvailable.toString())
+            data.append('isAvailable', String(isAvailable))
             data.append('price', formData.price.toString())
             data.append('categoryId', formData.categoryId)
             data.append('description', formData.description)
@@ -165,7 +164,7 @@ const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
                             id="name"
                             value={formData.name}
                             onChange={handleChange}
-                            placeholder="e. g. Running Shoes" />
+                            placeholder="e. g. Kopi Susu" />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="input-group-admin">
@@ -179,34 +178,33 @@ const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
                                 placeholder="0" />
                             </div>
                             <div className="input-group-admin">
-                                {
-                                    isEditMode && (
-                                        <>
-                                            <label htmlFor="isAvailable">Availability</label>
-                                            <label className="flex items-center gap-2">
-                                                <input
-                                                    type="radio"
-                                                    name="availability"
-                                                    value="true" 
-                                                    checked={isAvailable === true}
-                                                    onChange={handleChange}
-                                                />
-                                                Yes
-                                            </label>
-
-                                            <label className="flex items-center gap-2">
-                                                <input
-                                                    type="radio"
-                                                    name="availability"
-                                                    value="false"
-                                                    checked={isAvailable === false}
-                                                    onChange={handleChange}
-                                                />
-                                                No
-                                            </label>
-                                        </>
-                                    )
-                                }
+                                <label htmlFor="isAvailable">Availability</label>
+                                <div className="flex">
+                                                <div className="input-group-admin">
+                                                    <label className="flex items-center ps-4">
+                                                        <input
+                                                            type="radio"
+                                                            name="availability"
+                                                            value="true" 
+                                                            checked={isAvailable === true}
+                                                            onChange={() => setIsAvailable(true)}
+                                                        />
+                                                        <div className="text-center">Yes</div>
+                                                    </label>
+                                                </div>
+                                                <div className="input-group-admin">
+                                                    <label className="flex items-center ps-4">
+                                                        <input
+                                                            type="radio"
+                                                            name="availability"
+                                                            value="false" 
+                                                            checked={isAvailable === false}
+                                                            onChange={() => setIsAvailable(false)}
+                                                        />
+                                                        <div className="text-center">No</div>
+                                                    </label>
+                                                </div>
+                                </div>
                             </div>
                         </div>
                         <div className="input-group-admin">
@@ -228,7 +226,7 @@ const MenuModal = ({isOpen, onClose, onSuccess, menu} : TMenuModalProps) => {
                     name="description" 
                     id="description" 
                     rows={7} 
-                    placeholder="Product Details..."
+                    placeholder="Menu Details..."
                     value={formData.description}
                     onChange={handleChange}
                     ></textarea>

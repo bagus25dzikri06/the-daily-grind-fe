@@ -126,7 +126,7 @@ const CategoryModal = ({isOpen, onClose, onSuccess, category} : TCategoryModalPr
                             id="name"
                             value={formData.name}
                             onChange={handleChange} 
-                            placeholder="e. g. Running" />
+                            placeholder="e. g. Kopi" />
                         </div>
                         <div className="input-group-admin">
                             <label htmlFor="description">Description</label>

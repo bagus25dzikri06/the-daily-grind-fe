@@ -5,7 +5,7 @@ const Footer = () => {
     return <footer className="bg-primary-alternate text-primary">
         <div className="container mx-auto flex justify-between pt-14 pb-24">
             <div className="w-105">
-                <Image src="/images/the-daily-grind.png" alt="logo the daily grind footer" width={300} height={300} />
+                <Image src="/images/the-daily-grind.jpg" alt="logo the daily grind footer" width={300} height={203} />
                 <p className="mt-8">
                     A cashier service for the best selling coffee shop in the campus.
                 </p>

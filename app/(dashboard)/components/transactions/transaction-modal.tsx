@@ -141,8 +141,9 @@ const TransactionModal = ({isOpen, onClose, transaction, onStatusChange} : TTran
                         }
                         {
                             transaction.status === 'paid' && (
+                                <>
+                                <div className="font-semibold text-green-600">Transaction has been paid</div>
                                 <Suspense fallback={<div className="font-semibold">Loading...</div>}>
-                                    <div className="font-semibold text-green-600">Transaction has been paid</div>
                                     <Button 
                                         className="text-white! bg-[#FF991C]! rounded-md" 
                                         size="small"
@@ -170,16 +171,18 @@ const TransactionModal = ({isOpen, onClose, transaction, onStatusChange} : TTran
                                         disabled={isUpdating}>
                                             <>
                                                 <HiReceiptRefund size={20} />
-                                                Ready
+                                                Refunded
                                             </>
                                     </Button>
                                 </Suspense>
+                                </>
                             )
                         }
                         {
                             transaction.status === 'in progress' && (
+                                <>
+                                <div className="font-semibold text-green-600">Transaction has been in process</div>
                                 <Suspense fallback={<div className="font-semibold">Loading...</div>}>
-                                    <div className="font-semibold text-green-600">Transaction has been in process</div>
                                     <Button 
                                         className="text-black! bg-[#98FF98]! rounded-md" 
                                         size="small"
@@ -197,10 +200,11 @@ const TransactionModal = ({isOpen, onClose, transaction, onStatusChange} : TTran
                                         disabled={isUpdating}>
                                             <>
                                                 <HiReceiptRefund size={20} />
-                                                Ready
+                                                Refunded
                                             </>
                                     </Button>
                                 </Suspense>
+                                </>
                             )
                         }
                         {

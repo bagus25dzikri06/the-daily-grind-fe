@@ -29,13 +29,13 @@ const Header = () => {
     const {items} = useMenuOrder()
 
     return <header className="fixed w-full z-20 backdrop-blur-xl bg-white/50">
-        <div className="flex justify-between gap-10 container mx-auto py-7">
+        <div className="flex justify-between gap-10 container mx-auto py-4">
             <Link href="/">
                 <Image 
-                    src="/images/the-daily-grind.png"
-                    alt="SportOn logo"
-                    width={300}
-                    height={300}
+                    src="/images/The-Daily-Grind.jpg"
+                    alt="The Daily Grind logo"
+                    width={254}
+                    height={60}
                 />
             </Link>
             <nav className="flex gap-24 font-medium">

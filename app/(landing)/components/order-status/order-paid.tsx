@@ -16,7 +16,7 @@ const OrderPaid = () => {
         height={117} 
         alt="order submitted" 
         className="mb-4"/>
-        <h2 className="text-2xl font-semibold mb-2">Order Submitted !!</h2>
+        <h2 className="text-2xl font-semibold mb-2">Order Paid !!</h2>
         <p className="text-center mb-8">We have received your payment, and your order is currently processed by our barista and our cook, just wait until your favorite dish arrive.</p>
         <Button variant="dark" className="w-full" onClick={reloadOrderStatus}><FiRefreshCw />Refresh Order Status</Button>
     </main>

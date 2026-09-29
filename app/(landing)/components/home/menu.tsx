@@ -27,54 +27,35 @@ const MenuSection = ({menus}: TMenuProps) => {
         <div className="grid grid-cols-4 gap-5">
             {
                 menus.map((menu) => (
-                    <>
-                        {
-                            menu.isAvailable === true ? (
-                                <>
-                                    <Link href={`/menu/${menu._id}`} key={menu._id} className="p-1.5 bg-white hover:drop-shadow-xl duration-300">
-                                        <div className="bg-primary-light aspect-square w-full flex justify-center items-center relative">
-                                            <Image 
-                                            src={getImageUrl(menu.imageUrl)} 
-                                            alt={menu.name} 
-                                            width={300} 
-                                            height={300} 
-                                            unoptimized={true}
-                                            className="aspect-square object-contain" />
-                                            <Button className="w-10 h-10 p-2! absolute right-3 top-3" onClick={(e) => handleAddMenu(e, menu)}>
-                                                <FiPlus size={24} />
-                                            </Button>
-                                        </div>
-                                        <h3 className="font-medium text-lg mb-1.5 mt-4">{menu.name}</h3>
-                                        <div className="flex justify-between mb-8">
-                                            <div className="text-gray-500">{menu.category?.name}</div>
-                                            <div className="text-black">Available</div>
-                                            <div className="font-medium text-primary">{PriceFormatter(menu.price)}</div>
-                                        </div>
-                                    </Link>
-                                </>
-                            ) : (
-                                <>
-                                    <Link href={`/menu/${menu._id}`} key={menu._id} className="p-1.5 bg-white hover:drop-shadow-xl duration-300">
-                                        <div className="bg-primary-light aspect-square w-full flex justify-center items-center relative">
-                                            <Image 
-                                            src={getImageUrl(menu.imageUrl)} 
-                                            alt={menu.name} 
-                                            width={300} 
-                                            height={300} 
-                                            unoptimized={true}
-                                            className="aspect-square object-contain" />
-                                        </div>
-                                        <h3 className="font-medium text-lg mb-1.5 mt-4">{menu.name}</h3>
-                                        <div className="flex justify-between mb-8">
-                                            <div className="text-gray-500">{menu.category?.name}</div>
-                                            <div className="text-black">Sold Out</div>
-                                            <div className="font-medium text-primary">{PriceFormatter(menu.price)}</div>
-                                        </div>
-                                    </Link>
-                                </>
-                            )
-                        }
-                    </>    
+                    <Link href={`/menu/${menu._id}`} key={menu._id} className="p-1.5 bg-white hover:drop-shadow-xl duration-300">
+                        <div className="bg-primary-light aspect-square w-full flex justify-center items-center relative">
+                            <Image 
+                            src={getImageUrl(menu.imageUrl)} 
+                            alt={menu.name} 
+                            width={300} 
+                            height={300} 
+                            unoptimized={true}
+                            className="aspect-square object-contain" />
+                            <Button className="w-10 h-10 p-2! absolute right-3 top-3" onClick={(e) => handleAddMenu(e, menu)}>
+                                <FiPlus size={24} />
+                            </Button>
+                        </div>
+                        <h3 className="font-medium text-lg mb-1.5 mt-4">{menu.name}</h3>
+                        <div className="flex justify-between mb-8">
+                            <div className="text-gray-500">{menu.category?.name}</div>
+                            {
+                                menu.isAvailable === true && (
+                                    <div className="text-black">Available</div>
+                                )
+                            }
+                            {
+                                menu.isAvailable === false && (
+                                    <div className="text-black">Sold Out</div>
+                                )
+                            }
+                            <div className="font-medium text-primary">{PriceFormatter(menu.price)}</div>
+                        </div>
+                    </Link>    
                 ))
             }
         </div>

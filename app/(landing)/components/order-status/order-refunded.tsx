@@ -1,6 +1,6 @@
 "use client"
 
-import { HiReceiptRefund } from "react-icons/hi"
+import { HiReceiptRefund } from 'react-icons/hi'
 
 const OrderRefunded = () => {
     return <main className="bg-white w-160 p-16 flex flex-col justify-center items-center">

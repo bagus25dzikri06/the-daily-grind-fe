@@ -12,25 +12,15 @@
   --color-dark-alternate: var(--dark-alternate);
   --color-primary: var(--primary);
   --color-primary-alternate: var(--primary-alternate);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-exo-2);
+  --font-inter: var(--font-inter);
 }
 
 html {
   overflow-x: hidden;
 }
 
-h1 {
-  @apply font-heading;
-}
-
 * {
-  @apply font-sans;
-}
-
-p {
-  @apply font-mono;
+  @apply font-inter;
 }
 
 /* INPUT GROUP */
